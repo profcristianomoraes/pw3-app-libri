@@ -1,33 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+/* Importa o arquivo base de CSS de App.jsx */
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+/* Importa o compoente de BookCard */
+import BookCard from './components/BookCard'
 
+/* Objeto de imagem para teste de insercão de imagem */
+import cavernas from './assets/cavernas_aco.jpg'
+
+function App() {
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+        <h1>PW3 APP LIBRI</h1>
+
+        {/* Chamda do componente de BookCard com passagem de dados por meio de props */}
+        <BookCard 
+          titulo='As Cavernas de Aço'
+          autor='Isaac Azimov'
+          imagem={cavernas}
+        />
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
