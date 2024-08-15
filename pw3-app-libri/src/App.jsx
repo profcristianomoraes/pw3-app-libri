@@ -12,9 +12,7 @@ function App() {
     <>
       <div>
 
-        <h1>PW3 APP LIBRI</h1>
-
-        {/* Chamda do componente de BookCard com passagem de dados por meio de props */}
+        {/* Chamada do componente de BookCard com passagem de dados por meio de props */}
         <BookCard 
           titulo='As Cavernas de Aço'
           autor='Isaac Azimov'
