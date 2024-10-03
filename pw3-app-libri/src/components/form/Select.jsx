@@ -8,13 +8,12 @@ function Select({ text, name, options, handlerOnchange, value }) {
             <label htmlFor={name}>{text}</label>
 
             <select name={name} id={name}>
-
-                <option>Selecione uma categoria</option>
-                <option>Ficção científica</option>
-                <option>Fantasia heroica</option>
-                <option>Suspense</option>
-                <option>Terror</option>
-
+                <option>Selecione uma opção</option>
+                {
+                    options.map((option)=>(
+                        <option value={option.cod_categoria} key={option.cod_categoria}>{option.nome_categoria}</option>
+                    ))
+                }
             </select>
 
         </div>

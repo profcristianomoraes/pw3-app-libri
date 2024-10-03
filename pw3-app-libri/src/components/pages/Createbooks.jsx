@@ -1,7 +1,5 @@
-import React from 'react'
-
 /* IMPORTAÇÃO DA STATE */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import style from './Createbooks.module.css'
 import Input from '../form/Input'
@@ -13,16 +11,43 @@ const Createbooks = () => {
         /* STATE DE DADOS QUE VAI ARMAZENAR O OBJETO JSON DE LIVRO */
         const [book, setBook] = useState({})
 
+        /* STATE DE DADOS DAS CATEGORIAS VINDAS DO ARQUIVO db.json */
+        const [categories, setCategories] = useState([]);
+
         /* HANDLER DE CAPTURA DOS DADOS DE INPUT (NOME DO LIVRO, AUTOR E DESCRIÇÃO) */
         function handlerChangeBook(event) {
                 setBook({...book, [event.target.name] : event.target.value});
                 console.log(book)
         }
 
+        /* RECUPERA OS DADOS DE CATEGORIA DO BANCO DADOS */
+        useEffect(()=>{
+                fetch('http://localhost:5000/listagemCateorias', {
+                        method:'GET',
+                        headers:{
+                                'Content-Type':'application/json',
+                                'Access-Control-Allow-Origin':'*',
+                                'Access-Control-Allow-Headers':'*'
+                        },
+                }).then(
+                        (resp)=>
+                                resp.json()
+                ).then(
+                        (data)=>{
+                        setCategories(data.data);
+                        // console.log('TESTE-DATA:' + data.data);
+                        }
+                ).catch(
+                        (error)=>{
+                        console.log(error);
+                        }
+                )
+        }, [])
+
         /* INSERÇÃO DOS DADOS DE LIVRO */
         function createBook(book) {
         
-                // console.log(JSON.stringify(book))
+                console.log(JSON.stringify(book))
         
                 fetch('http://localhost:5000/inserirLivro', {
                         method:'POST',
@@ -88,6 +113,7 @@ const Createbooks = () => {
                                 <Select 
                                         name="categoria_id"
                                         text="Selecione a categoria do livro"
+                                        options={categories}
                                 />
 
                                 <Button 
