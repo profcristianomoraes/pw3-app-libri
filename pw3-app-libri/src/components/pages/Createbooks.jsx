@@ -20,6 +20,12 @@ const Createbooks = () => {
                 console.log(book)
         }
 
+        /* CAPTURA OS DADOS DA SELECT */
+        function handleChangeCategory(event) {
+                setBook({...book, cod_categoria: event.target.value});
+                console.log(book);
+        }
+
         /* RECUPERA OS DADOS DE CATEGORIA DO BANCO DADOS */
         useEffect(()=>{
                 fetch('http://localhost:5000/listagemCateorias', {
@@ -114,7 +120,7 @@ const Createbooks = () => {
                                         name="categoria_id"
                                         text="Selecione a categoria do livro"
                                         options={categories}
-                                />
+                                        handlerOnChange={handleChangeCategory}/>
 
                                 <Button 
                                 rotulo='Cadastrar livro'/>
