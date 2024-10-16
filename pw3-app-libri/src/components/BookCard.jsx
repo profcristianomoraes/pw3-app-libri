@@ -2,7 +2,7 @@ import style from './BookCard.module.css'
 
 import Button from './Button'
 
-const BookCard = ({titulo, autor, imagem})=>{
+const BookCard = ({cod_livro, titulo, autor, imagem})=>{
 
     return(
         <div className={style.bookCard}>
