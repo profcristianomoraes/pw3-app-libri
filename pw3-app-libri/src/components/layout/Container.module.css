@@ -1,6 +1,6 @@
 .container{
     width: 1200px;
-    background-color: #CCC;
+    /* background-color: #CCC; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

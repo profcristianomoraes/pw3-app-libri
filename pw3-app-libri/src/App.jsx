@@ -22,6 +22,9 @@ import Createbooks from './components/pages/Createbooks'
 /* Importa o componente de página de LIST BOOKS */
 import ListBooks from './components/pages/ListBooks'
 
+/* Importa o componente de página de DETAIL BOOK */
+import DetailBook from './components/pages/DetailBook'
+
 
 /* Objeto de imagem para teste de insercão de imagem */
 // import cavernas from './assets/cavernas_aco.jpg'
@@ -57,6 +60,7 @@ function App() {
                   <Route path='/' element={<Home />} />
                   <Route path='/listBook' element={<ListBooks />} />
                   <Route path='/newBook' element={<Createbooks />} />
+                  <Route path='/detailBook/:id' element={<DetailBook />} />
 
               </Route>
 

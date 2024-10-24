@@ -1,5 +1,6 @@
 /* IMPORTAÇÃO DA STATE */
 import { useState, useEffect } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 import style from './Createbooks.module.css'
 import Input from '../form/Input'
@@ -7,6 +8,9 @@ import Select from '../form/Select'
 import Button from '../form/Button'
 
 const Createbooks = () => {
+
+        /* OBJETO DE NAVEGAÇÃO */
+        const navigate = useNavigate();
 
         /* STATE DE DADOS QUE VAI ARMAZENAR O OBJETO JSON DE LIVRO */
         const [book, setBook] = useState({})
@@ -70,8 +74,8 @@ const Createbooks = () => {
                 )
                 .then(
                         (data)=>{
-                        console.log(data);
-                        // navigate('/livros',{state:'LIVRO CADASTRADO COM SUCESSO!'});
+                                console.log(data);
+                                navigate('/listBook',{state:'LIVRO CADASTRADO COM SUCESSO!'});
                         }
                 )
                 .catch(
