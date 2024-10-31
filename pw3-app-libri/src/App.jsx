@@ -25,6 +25,9 @@ import ListBooks from './components/pages/ListBooks'
 /* Importa o componente de página de DETAIL BOOK */
 import DetailBook from './components/pages/DetailBook'
 
+/* Importa o componente de exclusão de livro */
+import DeleteBook from './components/pages/DeleteBook'
+
 
 /* Objeto de imagem para teste de insercão de imagem */
 // import cavernas from './assets/cavernas_aco.jpg'
@@ -60,7 +63,8 @@ function App() {
                   <Route path='/' element={<Home />} />
                   <Route path='/listBook' element={<ListBooks />} />
                   <Route path='/newBook' element={<Createbooks />} />
-                  <Route path='/detailBook/:id' element={<DetailBook />} />
+                  <Route path='/detailBook/:cod_livro' element={<DetailBook />} />
+                  <Route path='/deleteBook/:cod_livro' element={<DeleteBook />} />
 
               </Route>
 
@@ -69,7 +73,6 @@ function App() {
         </Container>
 
         </BrowserRouter>
-
 
     </>
   )

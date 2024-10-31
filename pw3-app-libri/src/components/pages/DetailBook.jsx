@@ -9,8 +9,8 @@ import cavernas from '../../assets/cavernas_aco.jpg'
 const DetailBook = () => {
 
     /* RECUPERANDO O ID DA URL */
-    const {id} = useParams();
-    console.log('ID:' + id);
+    const {cod_livro} = useParams();
+    console.log('ID:' + cod_livro);
 
     /* CRIA O STATE DE DADOS QUE VAI ARMAZENAR O DEALHE DO LIVRO ESCOLHIDO */
     const[book, setBook] = useState({});
@@ -18,7 +18,7 @@ const DetailBook = () => {
     /* RECUPERANDO OS DADOS DE LIVRO PARA A EDIÇAO */
     useEffect(()=>{
 
-        fetch(`http://localhost:5000/listagemLivro/${id}`, {
+        fetch(`http://localhost:5000/listagemLivro/${cod_livro}`, {
             method: 'GET',
             mode:'cors',
             headers: {
@@ -55,10 +55,15 @@ const DetailBook = () => {
                 <div className={style.container_buttons}>
                     <Button 
                         label='EDITAR'
+                        router=''
+                        cod_livro={book.cod_livro}
+                        
                     />
 
                     <Button 
                         label='EXCLUIR'
+                        router='/deleteBook/'
+                        cod_livro={book.cod_livro}
                     />
 
                 </div>
