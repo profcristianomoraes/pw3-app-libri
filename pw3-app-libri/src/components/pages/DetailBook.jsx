@@ -55,7 +55,7 @@ const DetailBook = () => {
                 <div className={style.container_buttons}>
                     <Button 
                         label='EDITAR'
-                        router=''
+                        router='/updateBook/'
                         cod_livro={book.cod_livro}
                         
                     />
